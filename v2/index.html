@@ -91,8 +91,10 @@ footer{padding:22px 20px;font-size:11.5px;color:var(--sub);line-height:1.8}
 a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3px}
 .toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:#222;color:#fff;font-size:13px;padding:9px 14px;border-radius:8px;opacity:0;transition:.2s;pointer-events:none;z-index:40}
 .toast.on{opacity:1}
-.rate{display:inline-block;margin-top:10px;font-size:13.5px;color:var(--body)}
-.rate b{color:var(--ink)}
+.rate{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;color:var(--body);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.rate i{font-style:normal;color:#f2a900;letter-spacing:1px;font-size:14px}
+.rate b{color:var(--ink);font-size:15px}
+.rate span{color:var(--sub);text-decoration:underline;text-underline-offset:2px}
 .gal{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:14px -20px 0;padding:0 20px 4px;scrollbar-width:none}
 .gal::-webkit-scrollbar{display:none}
 .gal figure{flex:0 0 82%;scroll-snap-align:center}
@@ -111,15 +113,20 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 .evbox .row b{color:var(--ink);white-space:nowrap}
 .evbox .row.hit b{color:var(--accent)}
 .evbox small{display:block;font-size:11.5px;color:var(--sub);margin-top:6px}
-.kw{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
-.kw div{border:1px solid var(--line);border-radius:12px;padding:12px}
-.kw b{display:block;font-size:15px;color:var(--ink);line-height:1.3}
-.kw span{display:block;font-size:12.5px;color:var(--sub);margin-top:4px;line-height:1.4}
-.kw i{display:block;width:26px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:9px}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
-.tiles div{background:var(--soft);border-radius:10px;padding:10px 8px;text-align:center}
-.tiles b{display:block;font-size:19px;color:var(--ink);font-weight:800;line-height:1.15}
-.tiles span{display:block;font-size:11.5px;color:var(--body);margin-top:4px;line-height:1.3}
+/* 2026-11-10 Claude 2차: 사용자 "지도는 진료소 정보로, 의사는 사진 먼저, 키워드가 자리를 너무 차지함". 큰 카드 → 줄·한 줄 띠로 줄임. */
+.kw{margin-top:12px}
+.kw li{list-style:none;display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.kw li:last-child{border-bottom:0}
+.kw li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-2px)}
+.kw b{font-size:14.5px;color:var(--ink);white-space:nowrap}
+.kw span{margin-left:auto;font-size:12.5px;color:var(--sub);text-align:right}
+.facts{display:flex;margin-top:10px;border:1px solid var(--line);border-radius:10px}
+.facts span{flex:1;text-align:center;font-size:13px;color:var(--body);padding:9px 6px}
+.facts span+span{border-left:1px solid var(--line)}
+.facts b{color:var(--ink);font-weight:700}
+.loc{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.loc span,.loc a{font-size:12px;border-radius:999px;padding:3px 10px;background:var(--soft);color:var(--body)}
+.loc a{background:none;border:1px solid var(--line);color:var(--ink);font-weight:600}
 .map{margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--soft)}
 .map iframe{width:100%;height:100%;border:0;display:block}
 .near{margin-top:12px}
@@ -161,7 +168,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
     <div class="row"><span>You get</span><b>+100 shots for ₩90,000 more</b></div>
     <small>Limited-time event price. It may end without notice — message us to lock in your date.</small>
   </div>
-  <a class="rate" href="https://creatrip.com/en/spot/15274" target="_blank" rel="noopener"><b>★ 4.9</b> · 160 reviews on Creatrip</a>
+  <a class="rate" href="https://creatrip.com/en/spot/15274" target="_blank" rel="noopener"><i aria-hidden="true">★★★★★</i><b>4.9</b><span>160 reviews on Creatrip</span></a>
   <div class="badges"><span>One per person</span><span>Private 1:1 treatment rooms</span><span>English chat on WhatsApp</span></div>
 </div>
 
@@ -174,30 +181,9 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 </div>
 
 <div class="sec">
-  <h3>Right in the middle of Myeongdong</h3>
-  <p class="s">B1 of the Apple Myeongdong building, across from Lotte Department Store</p>
-  <div class="map"><iframe src="https://maps.google.com/maps?q=37.5646,126.9826&amp;z=17&amp;hl=en&amp;output=embed" title="Map: DAYBEAU Myeongdong Signature" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-  <ul class="near">
-    <li><span>Apple Myeongdong<small>Same building — we're on B1</small></span><em>0 min</em></li>
-    <li><span>Lotte Department Store (main)<small>Right across the street</small></span><em>1 min</em></li>
-    <li><span>Myeongdong shopping street<small>Shops and street food behind the building</small></span><em>1 min</em></li>
-    <li><span>Euljiro 1-ga Station · Line 2<small>Exit 6</small></span><em>2 min</em></li>
-    <li><span>Myeongdong Station · Line 4<small>A short walk through the shopping street</small></span><em>10 min</em></li>
-  </ul>
-  <div class="mapbtn">
-    <a href="https://www.google.com/maps/search/?api=1&amp;query=37.5646,126.9826" target="_blank" rel="noopener">Open Google Maps</a>
-    <a href="https://map.kakao.com/link/to/DAYBEAU%20Myeongdong%20Signature,37.5646,126.9826" target="_blank" rel="noopener">Walking route (Kakao)</a>
-  </div>
-  <div class="taxi">
-    <small>Show this to your taxi driver</small>
-    <p lang="ko">서울 중구 남대문로 84 지하1층<br>(애플 명동 건물) 데이뷰의원 명동시그니처점</p>
-  </div>
-  <p class="hint">Google Maps has no walking directions in Korea — use Kakao or Naver Map. Map apps may also show DAYBEAU's other Myeongdong branch; we're the Signature branch on B1 of the Apple building.</p>
-</div>
-
-<div class="sec">
   <h3>Inside the clinic</h3>
-  <p class="s">Real photos of DAYBEAU Myeongdong Signature</p>
+  <p class="s">Real photos · Apple Myeongdong building B1</p>
+  <div class="loc"><span>Across from Lotte Dept. Store</span><span>Euljiro 1-ga Stn 2 min</span><a href="#where">Map ↓</a></div>
   <div class="gal">
     <figure><img src="img/g2.jpg" alt="Private treatment room" loading="lazy"><figcaption>Private treatment room</figcaption></figure>
     <figure><img src="img/g1.jpg" alt="Lounge" loading="lazy"><figcaption>Lounge</figcaption></figure>
@@ -209,15 +195,11 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 <div class="sec">
   <h3>Your doctors</h3>
   <p class="s">Led by Dr. Kim Hyunji</p>
-  <div class="tiles">
-    <div><b>6</b><span>doctors on site</span></div>
-    <div><b>Less</b><span>waiting with more doctors</span></div>
-    <div><b>7 days</b><span>open, to fit your trip</span></div>
-  </div>
   <div class="docs">
     <img src="img/doc_d1.jpg" alt="" loading="lazy"><img src="img/doc_d2.jpg" alt="" loading="lazy"><img src="img/doc_d3.jpg" alt="" loading="lazy">
     <img src="img/doc_d4.jpg" alt="" loading="lazy"><img src="img/doc_d5.jpg" alt="" loading="lazy"><img src="img/doc_d6.jpg" alt="" loading="lazy">
   </div>
+  <div class="facts"><span><b>6</b> doctors on site</span><span>More doctors, <b>shorter waits</b></span></div>
 </div>
 
 <div class="sec">
@@ -232,12 +214,12 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 <div class="sec about">
   <h3>XERF in 4 points</h3>
   <p class="s">RF lifting by Cynosure Lutronic</p>
-  <div class="kw">
-    <div><i></i><b>Th*rmage-class RF</b><span>Same monopolar RF category, two depths (2 &amp; 6.78MHz)</span></div>
-    <div><i></i><b>Low pain</b><span>Designed for comfort; feeling varies by person</span></div>
-    <div><i></i><b>No needles</b><span>Most people head back out the same day</span></div>
-    <div><i></i><b>Fair price</b><span>400 shots for about S$930</span></div>
-  </div>
+  <ul class="kw">
+    <li><b>Th*rmage-class RF</b><span>Monopolar RF, two depths</span></li>
+    <li><b>Low pain</b><span>Feeling varies by person</span></li>
+    <li><b>No needles</b><span>Most go back out the same day</span></li>
+    <li><b>Fair price</b><span>400 shots ≈ S$930</span></li>
+  </ul>
   <img src="img/xerf.jpg" alt="XERF device" loading="lazy">
   <p class="s">Your doctor plans the 400 shots after checking your skin on the day.</p>
 </div>
@@ -273,12 +255,28 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 </div>
 
 <div class="sec">
-  <h3>Clinic info</h3>
+  <h3 id="where">Clinic info</h3>
   <div class="place">
     <img src="img/lounge.jpg" alt="" loading="lazy">
     <div><b>DAYBEAU Myeongdong Signature</b>
-      <p>B1, Hyde Park Bldg (Apple Myeongdong), 84 Namdaemun-ro, Jung-gu, Seoul<br>Euljiro 1-ga Station Exit 6 · about 2 min walk<br>Mon–Fri 10:00–20:00 · Sat–Sun 10:00–19:00</p></div>
+      <p>B1, Hyde Park Bldg (Apple Myeongdong), 84 Namdaemun-ro, Jung-gu, Seoul<br>Mon–Fri 10:00–20:00 · Sat–Sun 10:00–19:00</p></div>
   </div>
+  <div class="map"><iframe src="https://maps.google.com/maps?q=37.5646,126.9826&amp;z=17&amp;hl=en&amp;output=embed" title="Map: DAYBEAU Myeongdong Signature" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <ul class="near">
+    <li><span>Apple Myeongdong<small>Same building — we're on B1</small></span><em>0 min</em></li>
+    <li><span>Lotte Department Store (main)<small>Right across the street</small></span><em>1 min</em></li>
+    <li><span>Euljiro 1-ga Station · Line 2<small>Exit 6</small></span><em>2 min</em></li>
+    <li><span>Myeongdong Station · Line 4<small>A short walk through the shopping street</small></span><em>10 min</em></li>
+  </ul>
+  <div class="mapbtn">
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=37.5646,126.9826" target="_blank" rel="noopener">Open Google Maps</a>
+    <a href="https://map.kakao.com/link/to/DAYBEAU%20Myeongdong%20Signature,37.5646,126.9826" target="_blank" rel="noopener">Walking route (Kakao)</a>
+  </div>
+  <div class="taxi">
+    <small>Show this to your taxi driver</small>
+    <p lang="ko">서울 중구 남대문로 84 지하1층<br>(애플 명동 건물) 데이뷰의원 명동시그니처점</p>
+  </div>
+  <p class="hint">Google Maps has no walking directions in Korea — use Kakao or Naver Map. Map apps may also show DAYBEAU's other Myeongdong branch; we're the Signature branch on B1 of the Apple building.</p>
 </div>
 
 <div class="sec" style="border-bottom:0">
