@@ -2,10 +2,10 @@
 <html lang="en-SG">
 <head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>XERF Lifting in Myeongdong, Seoul — 400 shots ₩990,000 | DAYBEAU Myeongdong Signature</title>
-<meta name="description" content="First-visit offer at DAYBEAU Myeongdong Signature, Seoul: XERF lifting 400 shots for ₩990,000 (approx. S$930, 10% VAT excluded). Chat with us on WhatsApp or Instagram.">
+<meta name="description" content="First-visit offer at DAYBEAU Myeongdong Signature, Seoul: XERF lifting 400 shots for ₩990,000 (10% VAT excluded). Chat with us on WhatsApp or Instagram.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
@@ -141,6 +141,13 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 .taxi small{font-size:11.5px;color:var(--sub);text-transform:uppercase;letter-spacing:.06em}
 .taxi p{font-size:16px;font-weight:700;color:var(--ink);margin-top:4px;line-height:1.45}
 .hint{font-size:12.5px;color:var(--sub);margin-top:10px}
+/* 2026-11-10 Claude: 병원 피드백 「원장 사진은 대표원장 1명만」「금액은 원화만」 → 의료진 6명 격자 대신 대표원장 1명, S$ 환산 삭제 */
+.lead{display:grid;grid-template-columns:42% 1fr;gap:16px;align-items:center;margin-top:14px}
+.lead img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 12%;border-radius:12px}
+.lead b{display:block;font-size:19px;color:var(--ink)}
+.lead .role{display:block;font-size:13px;color:var(--accent);font-weight:700;margin-top:2px}
+.lead ul{margin:10px 0 0;padding:0;list-style:none;font-size:13px;color:var(--body);line-height:1.5}
+.lead li+li{margin-top:4px}
 
 /* 표지 공통: ₩ 기호를 작고 가늘게(굵은 ₩의 두 줄이 취소선처럼 읽힘), 별점 알약 */
 .krw{font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.1;white-space:nowrap}
@@ -183,16 +190,16 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 </div>
 <div class="strip">
   <div><small>Shots</small><b>400</b></div>
-  <div><small>Event price</small><b class="krw"><i>₩</i>990,000</b><span class="sgd2">≈ S$930</span></div>
+  <div><small>Event price</small><b class="krw"><i>₩</i>990,000</b></div>
   <div><small>Creatrip</small><span class="star"><i aria-hidden="true">★</i> 4.9<small>160 reviews</small></span></div>
 </div>
 
 <div class="head">
   <div class="clinic">DAYBEAU Myeongdong Signature · Apple Myeongdong building, B1</div>
   <h2>[First visit] XERF lifting, 400 shots</h2>
-  <div class="price"><span class="ev">Event price</span><span class="now">₩990,000</span><span class="sgd">≈ S$930</span></div>
+  <div class="price"><span class="ev">Event price</span><span class="now">₩990,000</span></div>
   <div class="per">₩247,500 per 100 shots · ₩1,089,000 with VAT</div>
-  <div class="vat">10% VAT excluded · paid in KRW · S$ is an approximate conversion</div>
+  <div class="vat">10% VAT excluded · paid in KRW</div>
   <div class="evbox">
     <div class="row"><span>Regular · 300 shots</span><b>₩900,000</b></div>
     <div class="row hit"><span>Event · 400 shots</span><b>₩990,000</b></div>
@@ -224,11 +231,18 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 </div>
 
 <div class="sec">
-  <h3>Your doctors</h3>
-  <p class="s">Led by Dr. Kim Hyunji</p>
-  <div class="docs">
-    <img src="img/doc_d1.jpg" alt="" loading="lazy"><img src="img/doc_d2.jpg" alt="" loading="lazy"><img src="img/doc_d3.jpg" alt="" loading="lazy">
-    <img src="img/doc_d4.jpg" alt="" loading="lazy"><img src="img/doc_d5.jpg" alt="" loading="lazy"><img src="img/doc_d6.jpg" alt="" loading="lazy">
+  <h3>Your lead doctor</h3>
+  <div class="lead">
+    <img src="img/doc_d1.jpg" alt="Dr. Kim Hyunji" loading="lazy">
+    <div>
+      <b>Dr. Kim Hyunji</b>
+      <span class="role">Medical Director</span>
+      <ul>
+        <li>Ewha Womans University, College of Medicine</li>
+        <li>Former head doctor, Toxnfill Clinic</li>
+        <li>Former vice director, Ritz Dermatology</li>
+      </ul>
+    </div>
   </div>
   <div class="facts"><span><b>6</b> doctors on site</span><span>More doctors, <b>shorter waits</b></span></div>
 </div>
@@ -249,7 +263,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
     <li><b>Th*rmage-class RF</b><span>Monopolar RF, two depths</span></li>
     <li><b>Low pain</b><span>Feeling varies by person</span></li>
     <li><b>No needles</b><span>Most go back out the same day</span></li>
-    <li><b>Fair price</b><span>400 shots ≈ S$930</span></li>
+    <li><b>Fair price</b><span>400 shots for ₩990,000</span></li>
   </ul>
   <img src="img/xerf.jpg" alt="XERF device" loading="lazy">
   <p class="s">Your doctor plans the 400 shots after checking your skin on the day.</p>
@@ -259,9 +273,9 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
   <h3>Price at a glance</h3>
   <p class="s">Shot count and price, before you message us</p>
   <table class="pt">
-    <tr class="hot"><td>XERF 400 shots · event (first visit)</td><td>₩990,000</td><td>≈ S$930</td></tr>
-    <tr><td>XERF 300 shots · regular</td><td>₩900,000</td><td>≈ S$850</td></tr>
-    <tr><td>XERF 600 shots · regular</td><td>₩1,700,000</td><td>≈ S$1,600</td></tr>
+    <tr class="hot"><td>XERF 400 shots · event (first visit)</td><td>₩990,000</td></tr>
+    <tr><td>XERF 300 shots · regular</td><td>₩900,000</td></tr>
+    <tr><td>XERF 600 shots · regular</td><td>₩1,700,000</td></tr>
   </table>
   <p class="s" style="margin-top:8px">All prices exclude 10% VAT.</p>
 </div>
@@ -279,7 +293,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 
 <div class="sec">
   <h3>FAQ</h3>
-  <details><summary>Is VAT included in the price?</summary><p>No. All prices exclude 10% VAT and are paid in Korean won. The S$ amounts are approximate conversions for reference.</p></details>
+  <details><summary>Is VAT included in the price?</summary><p>No. All prices exclude 10% VAT and are paid in Korean won.</p></details>
   <details><summary>Can I chat in English?</summary><p>Yes — message us on WhatsApp or Instagram in English. Send your travel dates and we'll suggest a time slot.</p></details>
   <details><summary>Can I add more shots or other treatments?</summary><p>You can discuss it at your consultation. The first-visit price applies once per person and can't be combined with other promotions.</p></details>
   <details><summary>What should I expect after treatment?</summary><p>Some people have temporary redness or warmth. Results and recovery vary from person to person.</p></details>
@@ -312,7 +326,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 
 <div class="sec" style="border-bottom:0">
   <h3>Notes</h3>
-  <p class="notes">· First-visit offer: one per person, not combinable with other promotions<br>· Prices exclude 10% VAT; payment in KRW. S$ converted at about ₩1,060 = S$1, for reference only<br>· Your treatment plan is confirmed at the in-clinic consultation; results vary<br>· Temporary redness, swelling or tingling may occur after treatment</p>
+  <p class="notes">· First-visit offer: one per person, not combinable with other promotions<br>· Prices exclude 10% VAT; payment in KRW<br>· Your treatment plan is confirmed at the in-clinic consultation; results vary<br>· Temporary redness, swelling or tingling may occur after treatment</p>
 </div>
 
 <footer>데이뷰의원 - 명동 시그니처점 (DAYBEAU Clinic Myeongdong Signature) | Representative Kim Hyunji | Business reg. 771-10-03054<br>B1, 84 Namdaemun-ro, Jung-gu, Seoul, Korea<br>The model in the top image is AI-generated and is not a patient. All clinic and doctor photos are real.</footer>
