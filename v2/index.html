@@ -101,6 +101,38 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
 .docs img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 12%;border-radius:10px}
 .per{margin-top:6px;font-size:14px;font-weight:700;color:var(--ink)}
+/* 2026-11-10 Claude: 사용자 "위치 자세히·지도, 의사 많은 장점, 세르프는 키워드로, 이벤트가 눈에 띄게". 마감일은 미정이라 가짜 기한 대신 '조기 종료 가능'만 쓴다. */
+.ev{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;letter-spacing:.01em}
+.ev::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.ev::before{animation:none}}
+.evbox{margin-top:14px;background:var(--accent-bg);border-radius:12px;padding:12px 14px}
+.evbox .row{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;padding:3px 0;color:var(--body)}
+.evbox .row b{color:var(--ink);white-space:nowrap}
+.evbox .row.hit b{color:var(--accent)}
+.evbox small{display:block;font-size:11.5px;color:var(--sub);margin-top:6px}
+.kw{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.kw div{border:1px solid var(--line);border-radius:12px;padding:12px}
+.kw b{display:block;font-size:15px;color:var(--ink);line-height:1.3}
+.kw span{display:block;font-size:12.5px;color:var(--sub);margin-top:4px;line-height:1.4}
+.kw i{display:block;width:26px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:9px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.tiles div{background:var(--soft);border-radius:10px;padding:10px 8px;text-align:center}
+.tiles b{display:block;font-size:19px;color:var(--ink);font-weight:800;line-height:1.15}
+.tiles span{display:block;font-size:11.5px;color:var(--body);margin-top:4px;line-height:1.3}
+.map{margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--soft)}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.near{margin-top:12px}
+.near li{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink)}
+.near li:last-child{border-bottom:0}
+.near em{font-style:normal;flex:none;font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-bg);border-radius:999px;padding:2px 9px}
+.near small{display:block;font-size:12px;color:var(--sub)}
+.mapbtn{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.mapbtn a{height:44px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:600;color:var(--ink)}
+.taxi{margin-top:12px;border:1px dashed #d9cfc7;border-radius:12px;padding:12px 14px}
+.taxi small{font-size:11.5px;color:var(--sub);text-transform:uppercase;letter-spacing:.06em}
+.taxi p{font-size:16px;font-weight:700;color:var(--ink);margin-top:4px;line-height:1.45}
+.hint{font-size:12.5px;color:var(--sub);margin-top:10px}
 </style>
 </head>
 <body><div style="position:relative;z-index:99;background:#111;color:#fff;text-align:center;font:600 12.5px/1.4 sans-serif;padding:7px 10px">Draft for review · not live yet · includes AI-generated images</div>
@@ -111,18 +143,24 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
   <img src="img/hero.jpg" alt="">
   <span class="ai">AI-generated model</span>
   <div class="copy">
-    <span class="pill">Myeongdong, Seoul · First-visit offer</span>
+    <span class="pill">Limited-time event · Myeongdong, Seoul</span>
     <h1>Comparing XERF<br>in Myeongdong?<br>Check the shot count first.</h1>
   </div>
   <div class="big">₩990,000<small>400 shots</small></div>
 </div>
 
 <div class="head">
-  <div class="clinic">DAYBEAU Myeongdong Signature · Euljiro 1-ga Stn Exit 6</div>
+  <div class="clinic">DAYBEAU Myeongdong Signature · Apple Myeongdong building, B1</div>
   <h2>[First visit] XERF lifting, 400 shots</h2>
-  <div class="price"><span class="now">₩990,000</span><span class="sgd">≈ S$930</span></div>
+  <div class="price"><span class="ev">Event price</span><span class="now">₩990,000</span><span class="sgd">≈ S$930</span></div>
   <div class="per">₩247,500 per 100 shots · ₩1,089,000 with VAT</div>
   <div class="vat">10% VAT excluded · paid in KRW · S$ is an approximate conversion</div>
+  <div class="evbox">
+    <div class="row"><span>Regular · 300 shots</span><b>₩900,000</b></div>
+    <div class="row hit"><span>Event · 400 shots</span><b>₩990,000</b></div>
+    <div class="row"><span>You get</span><b>+100 shots for ₩90,000 more</b></div>
+    <small>Limited-time event price. It may end without notice — message us to lock in your date.</small>
+  </div>
   <a class="rate" href="https://creatrip.com/en/spot/15274" target="_blank" rel="noopener"><b>★ 4.9</b> · 160 reviews on Creatrip</a>
   <div class="badges"><span>One per person</span><span>Private 1:1 treatment rooms</span><span>English chat on WhatsApp</span></div>
 </div>
@@ -133,6 +171,28 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
     <li>XERF 400 shots in a single session</li>
     <li>Consultation before treatment to plan where the shots go</li>
   </ul>
+</div>
+
+<div class="sec">
+  <h3>Right in the middle of Myeongdong</h3>
+  <p class="s">B1 of the Apple Myeongdong building, across from Lotte Department Store</p>
+  <div class="map"><iframe src="https://maps.google.com/maps?q=37.5646,126.9826&amp;z=17&amp;output=embed" title="Map: DAYBEAU Myeongdong Signature" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <ul class="near">
+    <li><span>Apple Myeongdong<small>Same building — we're on B1</small></span><em>0 min</em></li>
+    <li><span>Lotte Department Store (main)<small>Right across the street</small></span><em>1 min</em></li>
+    <li><span>Myeongdong shopping street<small>Shops and street food behind the building</small></span><em>1 min</em></li>
+    <li><span>Euljiro 1-ga Station · Line 2<small>Exit 6</small></span><em>2 min</em></li>
+    <li><span>Myeongdong Station · Line 4<small>A short walk through the shopping street</small></span><em>10 min</em></li>
+  </ul>
+  <div class="mapbtn">
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=37.5646,126.9826" target="_blank" rel="noopener">Open Google Maps</a>
+    <a href="https://map.kakao.com/link/to/DAYBEAU%20Myeongdong%20Signature,37.5646,126.9826" target="_blank" rel="noopener">Walking route (Kakao)</a>
+  </div>
+  <div class="taxi">
+    <small>Show this to your taxi driver</small>
+    <p lang="ko">서울 중구 남대문로 84 지하1층<br>(애플 명동 건물) 데이뷰의원 명동시그니처점</p>
+  </div>
+  <p class="hint">Google Maps has no walking directions in Korea — use Kakao or Naver Map. Map apps may also show DAYBEAU's other Myeongdong branch; we're the Signature branch on B1 of the Apple building.</p>
 </div>
 
 <div class="sec">
@@ -148,7 +208,12 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 
 <div class="sec">
   <h3>Your doctors</h3>
-  <p class="s">6 doctors on site, led by Dr. Kim Hyunji</p>
+  <p class="s">Led by Dr. Kim Hyunji</p>
+  <div class="tiles">
+    <div><b>6</b><span>doctors on site</span></div>
+    <div><b>Less</b><span>waiting with more doctors</span></div>
+    <div><b>7 days</b><span>open, to fit your trip</span></div>
+  </div>
   <div class="docs">
     <img src="img/doc_d1.jpg" alt="" loading="lazy"><img src="img/doc_d2.jpg" alt="" loading="lazy"><img src="img/doc_d3.jpg" alt="" loading="lazy">
     <img src="img/doc_d4.jpg" alt="" loading="lazy"><img src="img/doc_d5.jpg" alt="" loading="lazy"><img src="img/doc_d6.jpg" alt="" loading="lazy">
@@ -165,16 +230,23 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 </div>
 
 <div class="sec about">
-  <h3>About XERF</h3>
+  <h3>XERF in 4 points</h3>
+  <p class="s">RF lifting by Cynosure Lutronic</p>
+  <div class="kw">
+    <div><i></i><b>Th*rmage-class RF</b><span>Same monopolar RF category, two depths (2 &amp; 6.78MHz)</span></div>
+    <div><i></i><b>Low pain</b><span>Designed for comfort; feeling varies by person</span></div>
+    <div><i></i><b>No needles</b><span>Most people head back out the same day</span></div>
+    <div><i></i><b>Fair price</b><span>400 shots for about S$930</span></div>
+  </div>
   <img src="img/xerf.jpg" alt="XERF device" loading="lazy">
-  <p>XERF is a monopolar radiofrequency (RF) lifting device from Cynosure Lutronic. Like Thermage it is RF-based, but it uses two frequencies — 2MHz and 6.78MHz — to deliver energy at different depths. Your doctor plans the 400 shots after checking your skin on the day.</p>
+  <p class="s">Your doctor plans the 400 shots after checking your skin on the day.</p>
 </div>
 
 <div class="sec">
   <h3>Price at a glance</h3>
   <p class="s">Shot count and price, before you message us</p>
   <table class="pt">
-    <tr class="hot"><td>XERF 400 shots · first visit</td><td>₩990,000</td><td>≈ S$930</td></tr>
+    <tr class="hot"><td>XERF 400 shots · event (first visit)</td><td>₩990,000</td><td>≈ S$930</td></tr>
     <tr><td>XERF 300 shots · regular</td><td>₩900,000</td><td>≈ S$850</td></tr>
     <tr><td>XERF 600 shots · regular</td><td>₩1,700,000</td><td>≈ S$1,600</td></tr>
   </table>
@@ -205,7 +277,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
   <div class="place">
     <img src="img/lounge.jpg" alt="" loading="lazy">
     <div><b>DAYBEAU Myeongdong Signature</b>
-      <p>B1, Hyde Park Bldg, 84 Namdaemun-ro, Jung-gu, Seoul<br>Euljiro 1-ga Station Exit 6 · about 2 min walk<br>Mon–Fri 10:00–20:00 · Sat–Sun 10:00–19:00</p></div>
+      <p>B1, Hyde Park Bldg (Apple Myeongdong), 84 Namdaemun-ro, Jung-gu, Seoul<br>Euljiro 1-ga Station Exit 6 · about 2 min walk<br>Mon–Fri 10:00–20:00 · Sat–Sun 10:00–19:00</p></div>
   </div>
 </div>
 
@@ -217,7 +289,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 <footer>데이뷰의원 - 명동 시그니처점 (DAYBEAU Clinic Myeongdong Signature) | Representative Kim Hyunji | Business reg. 771-10-03054<br>B1, 84 Namdaemun-ro, Jung-gu, Seoul, Korea<br>The model in the top image is AI-generated and is not a patient. All clinic and doctor photos are real.</footer>
 
 <div class="bar">
-  <div class="t"><small>XERF 400 shots · first visit</small><b>₩990,000</b></div>
+  <div class="t"><small>Event price · XERF 400 shots</small><b>₩990,000</b></div>
   <a href="#" class="wa" data-wa><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp us</a>
   <a href="#" class="ig" data-ig aria-label="Message us on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="#fff"/></svg></a>
 </div>
