@@ -165,14 +165,14 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 .vb .copy p{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-top:8px;opacity:.9}
 .vb .ai{bottom:auto;top:12px}
 .strip{display:grid;grid-template-columns:.7fr 1.5fr 1fr;border-bottom:1px solid var(--line)}
-.strip>div{padding:12px 10px 13px;text-align:center}
+.strip>div{padding:12px 8px 13px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}
 .strip>div+div{border-left:1px solid var(--line)}
 .strip small{display:block;font-size:11px;color:var(--sub);margin-bottom:3px}
 .strip>div>b{font-size:22px;font-weight:800;color:var(--ink);line-height:1.2}
 .strip .krw{font-size:20px}
 .strip .sgd2{display:block;margin:0}
-.strip .star{flex-direction:column;align-items:center;gap:0;font-size:18px}
-.strip .star small{margin:0;font-size:11px}
+/* 11/10 S$ 삭제 후: 세 칸 모두 라벨 한 줄 + 숫자 한 줄로 맞춤(리뷰 수는 라벨로 올림) */
+.strip .star{font-size:20px;line-height:1.2}
 </style>
 </head>
 <body>
@@ -191,7 +191,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 <div class="strip">
   <div><small>Shots</small><b>400</b></div>
   <div><small>Event price</small><b class="krw"><i>₩</i>990,000</b></div>
-  <div><small>Creatrip</small><span class="star"><i aria-hidden="true">★</i> 4.9<small>160 reviews</small></span></div>
+  <div><small>Creatrip · 160 reviews</small><span class="star"><i aria-hidden="true">★</i> 4.9</span></div>
 </div>
 
 <div class="head">
