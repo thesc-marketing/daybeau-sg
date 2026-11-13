@@ -176,7 +176,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
     <small>Limited-time event price. It may end without notice — message us to lock in your date.</small>
   </div>
   <a class="rate" href="https://creatrip.com/en/spot/15274" target="_blank" rel="noopener"><i aria-hidden="true">★★★★★</i><b>4.9</b><span>160 reviews on Creatrip</span></a>
-  <div class="badges"><span>One per person</span><span>Private 1:1 treatment rooms</span><span>English chat on WhatsApp</span></div>
+  <div class="badges"><span>One per person</span><span>6 doctors on site</span><span>English chat on WhatsApp</span></div>
 </div>
 
 <div class="sec">
@@ -192,7 +192,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
   <p class="s">Real photos · Apple Myeongdong building B1</p>
   <div class="loc"><span>Across from Lotte Dept. Store</span><span>Euljiro 1-ga Stn 2 min</span><a href="#where">Map ↓</a></div>
   <div class="gal">
-    <figure><img src="img/g2.jpg" alt="Private treatment room" loading="lazy"><figcaption>Private treatment room</figcaption></figure>
+    <figure><img src="img/g2.jpg" alt="Treatment room" loading="lazy"><figcaption>Comfortable treatment room</figcaption></figure>
     <figure><img src="img/g1.jpg" alt="Lounge" loading="lazy"><figcaption>Lounge</figcaption></figure>
     <figure><img src="img/g4.jpg" alt="Waiting area" loading="lazy"><figcaption>Waiting area</figcaption></figure>
     <figure><img src="img/g3.jpg" alt="Hallway to the treatment rooms" loading="lazy"><figcaption>Hallway to the treatment rooms</figcaption></figure>
@@ -210,10 +210,14 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
         <li>Ewha Womans University, College of Medicine</li>
         <li>Former head doctor, Toxnfill Clinic</li>
         <li>Former vice director, Ritz Dermatology</li>
+        <li>Key doctor, Elravie Re2O</li>
+        <li>Member, Korean Aesthetic Surgery &amp; Laser Society (ASLS)</li>
+        <li>Member, Korean Society of Obesity &amp; Aesthetic Treatment (KOAT)</li>
       </ul>
     </div>
   </div>
   <div class="facts"><span><b>6</b> doctors on site</span><span>More doctors, <b>shorter waits</b></span></div>
+  <p class="s" style="margin-top:8px">Consultation with the medical director is a separate fee of ₩55,000.</p>
 </div>
 
 <div class="sec">
@@ -295,7 +299,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 
 <div class="sec" style="border-bottom:0">
   <h3>Notes</h3>
-  <p class="notes">· First-visit offer: one per person, not combinable with other promotions<br>· Prices exclude 10% VAT; payment in KRW<br>· Your treatment plan is confirmed at the in-clinic consultation; results vary<br>· Temporary redness, swelling or tingling may occur after treatment</p>
+  <p class="notes">· First-visit offer: one per person, not combinable with other promotions<br>· Prices exclude 10% VAT; payment in KRW<br>· Consultation with the medical director: separate ₩55,000 fee<br>· Your treatment plan is confirmed at the in-clinic consultation; results vary<br>· Temporary redness, swelling or tingling may occur after treatment</p>
 </div>
 
 <footer>데이뷰의원 - 명동 시그니처점 (DAYBEAU Clinic Myeongdong Signature) | Representative Kim Hyunji | Business reg. 771-10-03054<br>B1, 84 Namdaemun-ro, Jung-gu, Seoul, Korea<br>The model in the top image is AI-generated and is not a patient. All clinic and doctor photos are real.</footer>
@@ -308,11 +312,28 @@ a:focus-visible,summary:focus-visible{outline:3px solid #155e75;outline-offset:3
 <div class="toast" id="toast">Contact link coming soon</div>
 </div>
 <script>
-// 왓츠앱 번호·인스타 계정을 받으면 넣는다. 예: WA_URL="https://wa.me/8210xxxxxxxx?text=Hi%2C%20I%27d%20like%20to%20book%20XERF%20400%20shots", IG_URL="https://ig.me/m/<계정>"
-const WA_URL = "", IG_URL = "";
+// ── 미팅에서 받으면 세 줄만 채운다 ──
+// PIXEL_ID: 광고 계정 이벤트 관리자의 데이터세트(픽셀) ID, 숫자만
+// WA_NUMBER: 국가번호부터 숫자만 (예: 821067691597)
+// IG_ACCOUNT: 인스타 계정 이름, @ 빼고 (예: daybeau_md_global)
+const PIXEL_ID = "", WA_NUMBER = "", IG_ACCOUNT = "";
+
+// 왓츠앱 첫 메시지 끝에 붙는 짧은 표시. 상담 창에서 "랜딩에서 온 대화"를 셀 수 있고, 나중에 API를 붙이면 이 번호로 광고 클릭과 묶는다.
+const REF = Math.random().toString(36).slice(2, 7).toUpperCase();
+const WA_URL = WA_NUMBER ? `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`Hi! I'd like to book XERF 400 shots. (SG-${REF})`)}` : "";
+const IG_URL = IG_ACCOUNT ? `https://ig.me/m/${IG_ACCOUNT}?ref=SG-${REF}` : "";
+
+// 메타 픽셀: 페이지 조회 + 버튼 클릭을 Contact(문의)로
+if (PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq("init", PIXEL_ID);
+  fbq("track", "PageView");
+}
+const contact = channel => { if (window.fbq) fbq("track", "Contact", { content_name: channel, content_category: "XERF 400" }, { eventID: `SG-${REF}-${channel}` }); };
+
 const toast = () => { const t = document.getElementById("toast"); t.classList.add("on"); setTimeout(() => t.classList.remove("on"), 1600); };
-[["[data-wa]", WA_URL], ["[data-ig]", IG_URL]].forEach(([sel, url]) => document.querySelectorAll(sel).forEach(a => {
-  if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; return; }
+[["[data-wa]", WA_URL, "WhatsApp"], ["[data-ig]", IG_URL, "Instagram"]].forEach(([sel, url, channel]) => document.querySelectorAll(sel).forEach(a => {
+  if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; a.addEventListener("click", () => contact(channel)); return; }
   a.addEventListener("click", e => { e.preventDefault(); toast(); });
 }));
 </script>
